@@ -11,9 +11,7 @@ fi
 
 curl -s  https://raw.githubusercontent.com/GreatMedivack/files/master/list.out | awk '{if ($3=="Running") print $1}' > $server_name.out
 
-
 arc_name=$(echo $server_name | grep  -Po '(.*\d)')
-
 
 
 if [ -f "archives/$arc_name.tar" ]
@@ -21,6 +19,7 @@ then
     echo "Архив уже создан"
 else
      tar -cf  archives/$arc_name.tar $server_name.out
+
 fi
 
 
